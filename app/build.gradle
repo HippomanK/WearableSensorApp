@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply from: rootProject.file("gradle/git-tag-version.gradle")
+apply plugin: 'com.chaquo.python'
 
 android {
     compileSdkVersion 31
@@ -18,6 +19,30 @@ android {
         resConfigs "en"
 
         vectorDrawables.useSupportLibrary = true
+
+        ndk{
+            abiFilters "armeabi-v7a","x86"
+        }
+
+        python{
+            buildPython "C:/Users/oumar/anaconda3/pkgs/python-3.8.11-h6244533_1/python.exe"
+
+            pip{
+                install "numpy"
+                install "torch"
+                install "torchvision"
+                install "tqdm"
+                install "sklearn"
+                install "visdom"
+                install "matplotlib"
+            }
+        }
+        sourceSets{
+            main{
+                python.srcDir "src/main/python"
+            }
+        }
+
     }
 
     signingConfigs {
