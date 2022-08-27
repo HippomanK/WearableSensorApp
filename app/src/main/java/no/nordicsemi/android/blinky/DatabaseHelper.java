@@ -19,10 +19,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, "Result.db", null, 1);
     }
 
+    //Create local table
     @Override
     public void onCreate(SQLiteDatabase Db) {
-        //Db.execSQL("create Table " + TEST + "(time Text primary Key,Date Text,Result Integer)");
-        Db.execSQL("create Table " + TEST + "(id primary Key,Date Text,Result String)");
+        Db.execSQL("create Table " + TEST + "(id INTEGER PRIMARY KEY AUTOINCREMENT,Date Text,Result String)");
 
 
     }
@@ -32,12 +32,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Db.execSQL("Drop Table if exists " + TEST);
     }
 
-    // public boolean insertData(String Date, String time, int Result){
-    public boolean insertData(int Id,String Date,String Type,String Time){
+    //Store the symptom type, date and time locally
+    public boolean insertData(String Date,String Type,String Time){
         SQLiteDatabase Db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(ID,Id);
         contentValues.put(DATE,Date);
         contentValues.put(TIME,Time);
         contentValues.put(TYPE,Type);

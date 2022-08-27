@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply from: rootProject.file("gradle/git-tag-version.gradle")
 apply plugin: 'com.chaquo.python'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 31
@@ -25,6 +26,7 @@ android {
         }
 
         python{
+            //modify to enter find to address of python runner you use on your laptop
             buildPython "C:/Users/oumar/anaconda3/pkgs/python-3.8.11-h6244533_1/python.exe"
 
             pip{
@@ -93,6 +95,7 @@ dependencies {
     // BLE library
     implementation 'no.nordicsemi.android:ble-livedata:2.3.1'
     implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.firebase:firebase-config:21.1.1'
 
     // Use this dependency to verify no memory leaks in the app.
     // debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'

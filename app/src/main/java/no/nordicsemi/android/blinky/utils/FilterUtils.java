@@ -30,7 +30,7 @@ import no.nordicsemi.android.support.v18.scanner.ScanRecord;
 import no.nordicsemi.android.support.v18.scanner.ScanResult;
 
 public class FilterUtils {
-    private static final ParcelUuid EDDYSTONE_UUID
+    public static final ParcelUuid EDDYSTONE_UUID
             = ParcelUuid.fromString("0000FEAA-0000-1000-8000-00805f9b34fb");
 
     private static final int COMPANY_ID_MICROSOFT = 0x0006;
